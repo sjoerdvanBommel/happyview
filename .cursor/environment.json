@@ -1,0 +1,20 @@
+{
+  "name": "HappyView",
+  "install": "bash .cursor/install.sh",
+  "terminals": [
+    {
+      "name": "backend",
+      "command": "cargo run",
+      "description": "HappyView Rust AppView server on :3000 (SQLite, runs migrations, connects Jetstream). Reads .env."
+    },
+    {
+      "name": "web",
+      "command": "cd web && API_URL=http://127.0.0.1:3000 npm run dev",
+      "description": "Next.js admin dashboard dev server on :3001, proxying /api,/admin,/auth,/xrpc,/config,/health to the backend."
+    }
+  ],
+  "ports": [
+    { "name": "backend", "port": 3000 },
+    { "name": "web dashboard", "port": 3001 }
+  ]
+}
